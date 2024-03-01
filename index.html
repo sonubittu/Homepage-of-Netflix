@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>NETFLIX</title>
+</head>
+<body>
+    <!-- Video Intro -->
+    <div class="video-intro-container">
+        <video id="intro-video" autoplay muted>
+            <source src="vd.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Netflix Homepage (initially hidden) -->
+    <div class="netflix-homepage hidden">
+        <nav class="navbar">
+            <div class="left">
+                <img src="netflix-logo.png" alt="">
+            </div>
+            <div class="right">
+                <select name="language" class="language">
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                </select>
+                <button><a href="#">Sign In</a></button>
+            </div>
+        </nav>
+
+        <div class="title">
+            <div class="content">
+                <h1>Unlimited movies, TV shows and more.</h1>
+                <h2>Watch anywhere. Cancel anytime.</h2>
+                <form action="#">
+                    <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+                    <div class="email">
+                        <input type="email" name="email" placeholder="Email Address">
+                        <button><a href="#">Get Started  ></a></button>
+                    </div>
+                </form>
+    </div>
+
+    <!-- JavaScript to show the homepage after the video has played once -->
+    <script>
+        const introVideo = document.getElementById("intro-video");
+        const netflixHomepage = document.querySelector(".netflix-homepage");
+
+        // Add an event listener for the "ended" event of the video
+        introVideo.addEventListener("ended", function () {
+            // Hide the video element
+            introVideo.style.display = "none";
+            
+            // Show the homepage content
+            netflixHomepage.classList.remove("hidden");
+        });
+    </script>
+
+</body>
+</html>
